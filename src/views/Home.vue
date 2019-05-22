@@ -1,6 +1,8 @@
 <template>
     <my-page title="游戏">
-        <app-list :data="groups" />
+        <div class="common-container">
+            <app-list :data="groups" />
+        </div>
     </my-page>
 </template>
 
