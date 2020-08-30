@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .canvas {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="canvas" width="300" height="300" id="canvas"></canvas>
+    <script>
+        let canvas = document.getElementById('canvas')
+        let ctx = canvas.getContext('2d')
+        // ctx.fillRect(0, 0, 100, 100)
+        let map = [
+            ['', '', 'o'],
+            ['', 'o', ''],
+            ['', 'x', ''],
+        ]
+        // line
+        let gridSize = 100
+        for (let idx = 0; idx < 4; idx++) {
+            // 横
+            ctx.beginPath()
+            ctx.moveTo(0, idx * gridSize)
+            ctx.lineTo(300, idx * gridSize)
+            ctx.stroke()
+            // 
+            ctx.beginPath() 
+            ctx.moveTo(idx * gridSize, 0)
+            ctx.lineTo(idx * gridSize, 300)
+            ctx.stroke()
+        }
+        for (let row = 0; row < 3; row++) {
+            for (let col = 0; col < 3; col++) {
+                if (map[row][col]) {
+                    if (map[row][col] == 'o') {
+                        let center = {
+                            x: (col + 0.5) * gridSize,
+                            y: (row + 0.5) * gridSize,
+                        }
+                        ctx.beginPath()
+                        ctx.arc(center.x, center.y, 20, 0, Math.PI * 2)
+                        ctx.stroke()
+                        // ctx.fillText('o', center.x, center.y)
+                    }
+                    if (map[row][col] == 'x') {
+                        let center = {
+                            x: (col + 0.5) * gridSize,
+                            y: (row + 0.5) * gridSize,
+                        }
+                        ctx.beginPath()
+                        ctx.moveTo(center.x - 20, center.y - 20)
+                        ctx.lineTo(center.x + 20, center.y + 20)
+
+                        ctx.moveTo(center.x - 20, center.y + 20)
+                        ctx.lineTo(center.x + 20, center.y - 20)
+                        ctx.stroke()
+                        // ctx.fillText('o', center.x, center.y)
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

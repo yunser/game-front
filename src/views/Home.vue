@@ -77,7 +77,16 @@
                                 to: 'xxx',
                                 href: 'https://games.yunser.com/spider',
                                 target: '_blank'
-                            }
+                            },
+                            {
+                                name: '跳一跳',
+                                desc: '',
+                                icon: '/static/img/game.svg',
+                                to: 'xxx',
+                                href: 'https://jump.yunser.com/jump/jump.html',
+                                target: '_blank'
+                            },
+                            
                         ]
                     },
                     {
@@ -114,7 +123,15 @@
                                 to: 'xxx',
                                 href: 'https://demo2.yunser.com/aeroplane_chess/',
                                 target: '_blank'
-                            }
+                            },
+                            {
+                                name: '井字棋',
+                                desc: '',
+                                icon: '/static/img/chess_fly.svg',
+                                to: 'xxx',
+                                href: 'https://games.yunser.com/xox/',
+                                target: '_blank'
+                            },
                         ]
                     }
                 ],
